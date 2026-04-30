@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { personas } from '@/lib/personas';
-import { Send, User as UserIcon, Bot, MoreHorizontal, AlertCircle } from 'lucide-react';
+import { Send, User as UserIcon, MoreHorizontal, AlertCircle } from 'lucide-react';
 
 type Message = {
   id: string;
@@ -39,7 +39,7 @@ export default function Home() {
     if (!text.trim()) return;
 
     const newUserMessage: Message = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       role: 'user',
       content: text.trim(),
     };
@@ -69,14 +69,14 @@ export default function Home() {
       }
 
       const newAssistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: crypto.randomUUID(),
         role: 'assistant',
         content: data.text,
       };
 
       setMessages((prev) => [...prev, newAssistantMessage]);
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
       setIsLoading(false);
     }
@@ -97,14 +97,14 @@ export default function Home() {
               key={persona.id}
               onClick={() => handlePersonaChange(persona.id)}
               className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all ${activePersona.id === persona.id
-                  ? 'bg-blue-50 text-blue-700 font-medium ring-1 ring-blue-200'
-                  : 'hover:bg-gray-100 text-gray-600'
+                ? 'bg-blue-50 text-blue-700 font-medium ring-1 ring-blue-200'
+                : 'hover:bg-gray-100 text-gray-600'
                 }`}
             >
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${activePersona.id === persona.id
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-200 text-gray-700'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-200 text-gray-700'
                   }`}
               >
                 {persona.avatar}
@@ -175,16 +175,16 @@ export default function Home() {
                 >
                   <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 shadow-sm ${message.role === 'user'
-                        ? 'bg-indigo-600 text-white'
-                        : 'bg-blue-600 text-white font-bold'
+                      ? 'bg-indigo-600 text-white'
+                      : 'bg-blue-600 text-white font-bold'
                       }`}
                   >
                     {message.role === 'user' ? <UserIcon size={20} /> : activePersona.avatar}
                   </div>
                   <div
                     className={`max-w-[80%] rounded-2xl p-4 shadow-sm ${message.role === 'user'
-                        ? 'bg-indigo-600 text-white rounded-tr-none'
-                        : 'bg-white border border-gray-100 rounded-tl-none text-gray-800'
+                      ? 'bg-indigo-600 text-white rounded-tr-none'
+                      : 'bg-white border border-gray-100 rounded-tl-none text-gray-800'
                       }`}
                   >
                     <p className="whitespace-pre-wrap leading-relaxed">{message.content}</p>
