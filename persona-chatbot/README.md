@@ -5,12 +5,12 @@ Prompt Engineering | Scaler Academy
 This is a persona-based AI chatbot application featuring three distinct Scaler personalities: Anshuman Singh, Kshitij Mishra, and Abhimanyu Saxena. The system prompts have been carefully engineered using instructions and few-shot examples to maintain consistent personalities.
 
 ## Live Demo
-The application is deployed on Vercel: https://sst-28-gen-ai.vercel.app
+The application is deployed on Vercel: [https://sst-28-gen-ai.vercel.app](https://sst-28-gen-ai.vercel.app)
 
 ## Features
 - **3 Distinct Personas**: Carefully crafted system prompts representing Anshuman Singh, Abhimanyu Saxena, and Kshitij Mishra.
 - **Next.js App Router**: Modern and fast architecture.
-- **Gemini AI**: Using Google's modern LLM `gemini-1.5-flash` for high-quality responses.
+- **Groq LLaMA 3**: Using \`llama3-70b-8192\` via the Groq API for blazingly fast inference and high-quality reasoning.
 - **Clean UI**: Responsive chat interface styled with Tailwind CSS, supporting suggestion chips, typing indicators, and beautiful aesthetics.
 
 ## Prompt Engineering
@@ -22,7 +22,7 @@ See [\`reflection.md\`](reflection.md) for my thoughts and reflections on the pr
 ## Tech Stack
 - Frontend: Next.js 15, React, Tailwind CSS, Lucide Icons
 - Backend: Next.js API Routes (Serverless)
-- LLM Integration: Google Generative AI (\`@google/generative-ai\`)
+- LLM Integration: Groq LLaMA 3 (\`groq-sdk\`)
 
 ## Setup Instructions
 To run this project locally, follow these steps:
@@ -43,9 +43,9 @@ To run this project locally, follow these steps:
    \`\`\`bash
    cp .env.example .env
    \`\`\`
-   Then, add your Gemini API key to the \`.env\` file:
+   Then, add your Groq API key to the \`.env\` file:
    \`\`\`
-   GEMINI_API_KEY=your_actual_api_key_here
+   GROQ_API_KEY=your_actual_api_key_here
    \`\`\`
    *Note: Never commit your actual \`.env\` file. The API key is securely handled by the Next.js API routes.*
 

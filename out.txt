@@ -1,0 +1,84 @@
+﻿FILE: C:\Users\kingcuber\Desktop\2028-GenAI\next.config.ts
+[
+  {
+    ruleId: '@typescript-eslint/no-unused-vars',
+    severity: 1,
+    message: "'NextConfig' is defined but never used.",
+    line: 1,
+    column: 15,
+    nodeType: 'Identifier',
+    messageId: 'unusedVar',
+    endLine: 1,
+    endColumn: 25,
+    suggestions: [ [Object] ]
+  }
+]
+FILE: C:\Users\kingcuber\Desktop\2028-GenAI\src\app\page.tsx
+[
+  {
+    ruleId: '@typescript-eslint/no-unused-vars',
+    severity: 1,
+    message: "'Bot' is defined but never used.",
+    line: 5,
+    column: 34,
+    nodeType: 'Identifier',
+    messageId: 'unusedVar',
+    endLine: 5,
+    endColumn: 37,
+    suggestions: [ [Object] ]
+  },
+  {
+    ruleId: 'react-hooks/purity',
+    severity: 2,
+    message: 'Error: Cannot call impure function during render\n' +
+      '\n' +
+      '`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).\n' +
+      '\n' +
+      'C:\\Users\\kingcuber\\Desktop\\2028-GenAI\\src\\app\\page.tsx:42:11\n' +
+      '  40 |\n' +
+      '  41 |     const newUserMessage: Message = {\n' +
+      '> 42 |       id: Date.now().toString(),\n' +
+      '     |           ^^^^^^^^^^ Cannot call impure function\n' +
+      "  43 |       role: 'user',\n" +
+      '  44 |       content: text.trim(),\n' +
+      '  45 |     };',
+    line: 42,
+    column: 11,
+    nodeType: null,
+    endLine: 42,
+    endColumn: 21
+  },
+  {
+    ruleId: 'react-hooks/purity',
+    severity: 2,
+    message: 'Error: Cannot call impure function during render\n' +
+      '\n' +
+      '`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).\n' +
+      '\n' +
+      'C:\\Users\\kingcuber\\Desktop\\2028-GenAI\\src\\app\\page.tsx:72:14\n' +
+      '  70 |\n' +
+      '  71 |       const newAssistantMessage: Message = {\n' +
+      '> 72 |         id: (Date.now() + 1).toString(),\n' +
+      '     |              ^^^^^^^^^^ Cannot call impure function\n' +
+      "  73 |         role: 'assistant',\n" +
+      '  74 |         content: data.text,\n' +
+      '  75 |       };',
+    line: 72,
+    column: 14,
+    nodeType: null,
+    endLine: 72,
+    endColumn: 24
+  },
+  {
+    ruleId: '@typescript-eslint/no-explicit-any',
+    severity: 2,
+    message: 'Unexpected any. Specify a different type.',
+    line: 78,
+    column: 19,
+    nodeType: 'TSAnyKeyword',
+    messageId: 'unexpectedAny',
+    endLine: 78,
+    endColumn: 22,
+    suggestions: [ [Object], [Object] ]
+  }
+]

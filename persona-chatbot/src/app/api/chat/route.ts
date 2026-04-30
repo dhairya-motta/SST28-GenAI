@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
 
         const formattedMessages: ChatCompletionMessageParam[] = [
             { role: 'system', content: systemPrompt },
-            ...messages.map((msg: any) => ({
+            ...messages.map((msg: { role: string; content: string }) => ({
                 role: (msg.role === 'user' ? 'user' : 'assistant') as 'user' | 'assistant',
                 content: msg.content,
             }))
@@ -40,10 +40,10 @@ export async function POST(req: NextRequest) {
         const text = chatCompletion.choices[0]?.message?.content || '';
 
         return NextResponse.json({ text });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error('Chat API Error:', error);
         return NextResponse.json(
-            { error: error?.message || 'An error occurred during the API call.' },
+            { error: error instanceof Error ? error.message : 'An error occurred during the API call.' },
             { status: 500 }
         );
     }
