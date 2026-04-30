@@ -5,7 +5,7 @@ Prompt Engineering | Scaler Academy
 This is a persona-based AI chatbot application featuring three distinct Scaler personalities: Anshuman Singh, Kshitij Mishra, and Abhimanyu Saxena. The system prompts have been carefully engineered using instructions and few-shot examples to maintain consistent personalities.
 
 ## Live Demo
-The application is deployed on Vercel: [Insert Vercel URL Here]
+The application is deployed on Vercel: https://sst-28-gen-ai.vercel.app
 
 ## Features
 - **3 Distinct Personas**: Carefully crafted system prompts representing Anshuman Singh, Abhimanyu Saxena, and Kshitij Mishra.
